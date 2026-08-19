@@ -1,0 +1,941 @@
+{
+  "input": {
+    "solverType": "cpsat",
+    "unicode": "815E5-838B0-2A4C1-28880-87724",
+    "jobs": [
+      {
+        "jobId": 1,
+        "jobName": "订单-001",
+        "startProductionTime": "2026-07-01 08:00:00",
+        "deadline": "2026-07-13 18:00:00",
+        "demand": 1293,
+        "minDemand": 249.0,
+        "priority": 1,
+        "craft": 1
+      },
+      {
+        "jobId": 2,
+        "jobName": "订单-002",
+        "startProductionTime": "2026-07-02 08:00:00",
+        "deadline": "2026-07-12 18:00:00",
+        "demand": 984,
+        "minDemand": 192.0,
+        "priority": 2,
+        "craft": 1
+      },
+      {
+        "jobId": 3,
+        "jobName": "订单-003",
+        "startProductionTime": "2026-07-03 08:00:00",
+        "deadline": "2026-07-14 18:00:00",
+        "demand": 1313,
+        "minDemand": 336.0,
+        "priority": 2,
+        "craft": 1
+      },
+      {
+        "jobId": 4,
+        "jobName": "订单-004",
+        "startProductionTime": "2026-07-04 08:00:00",
+        "deadline": "2026-07-15 18:00:00",
+        "demand": 1010,
+        "minDemand": 193.0,
+        "priority": 3,
+        "craft": 1
+      },
+      {
+        "jobId": 5,
+        "jobName": "订单-005",
+        "startProductionTime": "2026-07-05 08:00:00",
+        "deadline": "2026-07-18 18:00:00",
+        "demand": 1584,
+        "minDemand": 259.0,
+        "priority": 2,
+        "craft": 1
+      },
+      {
+        "jobId": 6,
+        "jobName": "订单-006",
+        "startProductionTime": "2026-07-06 08:00:00",
+        "deadline": "2026-07-20 18:00:00",
+        "demand": 1331,
+        "minDemand": 285.0,
+        "priority": 2,
+        "craft": 1
+      },
+      {
+        "jobId": 7,
+        "jobName": "订单-007",
+        "startProductionTime": "2026-07-07 08:00:00",
+        "deadline": "2026-07-21 18:00:00",
+        "demand": 1038,
+        "minDemand": 161.0,
+        "priority": 2,
+        "craft": 1
+      }
+    ],
+    "crafts": [
+      {
+        "craftId": 1,
+        "craftName": "基础工艺",
+        "procedureIds": [
+          10,
+          20,
+          30,
+          40
+        ]
+      }
+    ],
+    "procedures": [
+      {
+        "procedureId": 10,
+        "procedureName": "前处理"
+      },
+      {
+        "procedureId": 20,
+        "procedureName": "主加工"
+      },
+      {
+        "procedureId": 30,
+        "procedureName": "辅助加工"
+      },
+      {
+        "procedureId": 40,
+        "procedureName": "检验包装"
+      }
+    ],
+    "machines": [
+      {
+        "machineId": 1,
+        "machineName": "线1-前处理-01",
+        "capacity": 0.4,
+        "setupTime": 30,
+        "procedure": 10,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 2,
+        "machineName": "线1-前处理-02",
+        "capacity": 0.38,
+        "setupTime": 40,
+        "procedure": 10,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 3,
+        "machineName": "线1-前处理-03",
+        "capacity": 0.42,
+        "setupTime": 30,
+        "procedure": 10,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 4,
+        "machineName": "线1-主加工-01",
+        "capacity": 0.6,
+        "setupTime": 50,
+        "procedure": 20,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 5,
+        "machineName": "线1-主加工-02",
+        "capacity": 0.55,
+        "setupTime": 60,
+        "procedure": 20,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 6,
+        "machineName": "线1-主加工-03",
+        "capacity": 0.65,
+        "setupTime": 50,
+        "procedure": 20,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 7,
+        "machineName": "线1-辅助加工-01",
+        "capacity": 0.5,
+        "setupTime": 30,
+        "procedure": 30,
+        "productionLine": 1,
+        "linkMachineId": 9
+      },
+      {
+        "machineId": 8,
+        "machineName": "线1-辅助加工-02",
+        "capacity": 0.48,
+        "setupTime": 40,
+        "procedure": 30,
+        "productionLine": 1,
+        "linkMachineId": 10
+      },
+      {
+        "machineId": 9,
+        "machineName": "线1-检验包装-01",
+        "capacity": 0.5,
+        "setupTime": 30,
+        "procedure": 40,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 10,
+        "machineName": "线1-检验包装-02",
+        "capacity": 0.45,
+        "setupTime": 40,
+        "procedure": 40,
+        "productionLine": 1,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 11,
+        "machineName": "线2-前处理-01",
+        "capacity": 0.4,
+        "setupTime": 30,
+        "procedure": 10,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 12,
+        "machineName": "线2-前处理-02",
+        "capacity": 0.38,
+        "setupTime": 40,
+        "procedure": 10,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 13,
+        "machineName": "线2-前处理-03",
+        "capacity": 0.42,
+        "setupTime": 30,
+        "procedure": 10,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 14,
+        "machineName": "线2-主加工-01",
+        "capacity": 0.6,
+        "setupTime": 50,
+        "procedure": 20,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 15,
+        "machineName": "线2-主加工-02",
+        "capacity": 0.55,
+        "setupTime": 60,
+        "procedure": 20,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 16,
+        "machineName": "线2-主加工-03",
+        "capacity": 0.65,
+        "setupTime": 50,
+        "procedure": 20,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 17,
+        "machineName": "线2-辅助加工-01",
+        "capacity": 0.5,
+        "setupTime": 30,
+        "procedure": 30,
+        "productionLine": 2,
+        "linkMachineId": 19
+      },
+      {
+        "machineId": 18,
+        "machineName": "线2-辅助加工-02",
+        "capacity": 0.48,
+        "setupTime": 40,
+        "procedure": 30,
+        "productionLine": 2,
+        "linkMachineId": 20
+      },
+      {
+        "machineId": 19,
+        "machineName": "线2-检验包装-01",
+        "capacity": 0.5,
+        "setupTime": 30,
+        "procedure": 40,
+        "productionLine": 2,
+        "linkMachineId": -1
+      },
+      {
+        "machineId": 20,
+        "machineName": "线2-检验包装-02",
+        "capacity": 0.45,
+        "setupTime": 40,
+        "procedure": 40,
+        "productionLine": 2,
+        "linkMachineId": -1
+      }
+    ],
+    "productionScheduleOtherBlocks": [
+      {
+        "machineId": 3,
+        "startTime": "2026-07-03 08:00:00",
+        "endTime": "2026-07-04 08:00:00",
+        "blockType": 3,
+        "description": "精度校准-机器3"
+      },
+      {
+        "machineId": 13,
+        "startTime": "2026-07-04 08:00:00",
+        "endTime": "2026-07-05 10:00:00",
+        "blockType": 3,
+        "description": "全面点检-机器13"
+      },
+      {
+        "machineId": 2,
+        "startTime": "2026-07-03 08:00:00",
+        "endTime": "2026-07-04 10:00:00",
+        "blockType": 2,
+        "description": "大工单占机-机器2"
+      },
+      {
+        "machineId": 17,
+        "startTime": "2026-07-05 16:00:00",
+        "endTime": "2026-07-06 18:00:00",
+        "blockType": 3,
+        "description": "质量抽检停机-机器17"
+      },
+      {
+        "machineId": 12,
+        "startTime": "2026-07-03 16:00:00",
+        "endTime": "2026-07-04 18:00:00",
+        "blockType": 2,
+        "description": "紧急工单-机器12"
+      },
+      {
+        "machineId": 6,
+        "startTime": "2026-07-08 16:00:00",
+        "endTime": "2026-07-09 18:00:00",
+        "blockType": 1,
+        "description": "全面检修-机器6"
+      },
+      {
+        "machineId": 5,
+        "startTime": "2026-07-05 08:00:00",
+        "endTime": "2026-07-06 10:00:00",
+        "blockType": 1,
+        "description": "主轴保养-机器5"
+      },
+      {
+        "machineId": 6,
+        "startTime": "2026-07-04 08:00:00",
+        "endTime": "2026-07-05 08:00:00",
+        "blockType": 2,
+        "description": "模具更换-机器6"
+      },
+      {
+        "machineId": 8,
+        "startTime": "2026-07-07 08:00:00",
+        "endTime": "2026-07-08 10:00:00",
+        "blockType": 2,
+        "description": "系统调试-机器8"
+      },
+      {
+        "machineId": 18,
+        "startTime": "2026-07-07 08:00:00",
+        "endTime": "2026-07-08 08:00:00",
+        "blockType": 2,
+        "description": "参数调试-机器18"
+      },
+      {
+        "machineId": 7,
+        "startTime": "2026-07-05 08:00:00",
+        "endTime": "2026-07-06 08:00:00",
+        "blockType": 3,
+        "description": "质量检测停机-机器7"
+      },
+      {
+        "machineId": 19,
+        "startTime": "2026-07-08 08:00:00",
+        "endTime": "2026-07-09 08:00:00",
+        "blockType": 1,
+        "description": "大保养-机器19"
+      },
+      {
+        "machineId": 15,
+        "startTime": "2026-07-08 08:00:00",
+        "endTime": "2026-07-09 10:00:00",
+        "blockType": 1,
+        "description": "液压维护-机器15"
+      },
+      {
+        "machineId": 4,
+        "startTime": "2026-07-02 18:00:00",
+        "endTime": "2026-07-03 20:00:00",
+        "blockType": 3,
+        "description": "急单占用-机器4"
+      },
+      {
+        "machineId": 11,
+        "startTime": "2026-07-02 08:00:00",
+        "endTime": "2026-07-03 08:00:00",
+        "blockType": 1,
+        "description": "故障维修-机器11"
+      },
+      {
+        "machineId": 13,
+        "startTime": "2026-07-09 14:00:00",
+        "endTime": "2026-07-10 16:00:00",
+        "blockType": 1,
+        "description": "主轴维修-机器13"
+      },
+      {
+        "machineId": 14,
+        "startTime": "2026-07-05 08:00:00",
+        "endTime": "2026-07-06 08:00:00",
+        "blockType": 2,
+        "description": "精度校准-机器14"
+      },
+      {
+        "machineId": 16,
+        "startTime": "2026-07-06 08:00:00",
+        "endTime": "2026-07-07 10:00:00",
+        "blockType": 2,
+        "description": "模具更换-机器16"
+      },
+      {
+        "machineId": 10,
+        "startTime": "2026-07-04 14:00:00",
+        "endTime": "2026-07-05 16:00:00",
+        "blockType": 2,
+        "description": "产品换型-机器10"
+      },
+      {
+        "machineId": 1,
+        "startTime": "2026-07-02 08:00:00",
+        "endTime": "2026-07-03 10:00:00",
+        "blockType": 1,
+        "description": "设备大修-机器1"
+      },
+      {
+        "machineId": 20,
+        "startTime": "2026-07-07 14:00:00",
+        "endTime": "2026-07-08 16:00:00",
+        "blockType": 2,
+        "description": "包装线换型-机器20"
+      },
+      {
+        "machineId": 1,
+        "startTime": "2026-07-04 14:00:00",
+        "endTime": "2026-07-05 16:00:00",
+        "blockType": 2,
+        "description": "大工单占机-机器1"
+      },
+      {
+        "machineId": 9,
+        "startTime": "2026-07-06 08:00:00",
+        "endTime": "2026-07-07 08:00:00",
+        "blockType": 1,
+        "description": "定期保养-机器9"
+      },
+      {
+        "machineId": 2,
+        "startTime": "2026-07-06 10:00:00",
+        "endTime": "2026-07-07 12:00:00",
+        "blockType": 1,
+        "description": "电机维修-机器2"
+      }
+    ],
+    "transTimes": [
+      {
+        "craft": 1,
+        "fromProcedure": 10,
+        "toProcedure": 20,
+        "aheadTime": 50,
+        "behindTime": 50
+      },
+      {
+        "craft": 1,
+        "fromProcedure": 20,
+        "toProcedure": 30,
+        "aheadTime": 33,
+        "behindTime": 33
+      },
+      {
+        "craft": 1,
+        "fromProcedure": 30,
+        "toProcedure": 40,
+        "aheadTime": 40,
+        "behindTime": 40
+      }
+    ]
+  },
+  "output": {
+    "errorCode": 0,
+    "msg": "求解成功",
+    "solveTime": 0.85,
+    "data": {
+      "machineResults": [
+        {
+          "machineId": 11,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-01 08:00:00",
+              "endTime": "2026-07-02 07:30:00",
+              "plannedQuantity": 564
+            },
+            {
+              "jobId": 3,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-03 08:30:00",
+              "endTime": "2026-07-04 14:35:00",
+              "plannedQuantity": 722
+            },
+            {
+              "jobId": 4,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-04 15:05:00",
+              "endTime": "2026-07-05 14:05:00",
+              "plannedQuantity": 552
+            },
+            {
+              "jobId": 6,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-06 08:00:00",
+              "endTime": "2026-07-06 19:53:00",
+              "plannedQuantity": 285
+            }
+          ]
+        },
+        {
+          "machineId": 12,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-01 08:00:00",
+              "endTime": "2026-07-02 15:59:00",
+              "plannedQuantity": 729
+            },
+            {
+              "jobId": 2,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-02 16:39:00",
+              "endTime": "2026-07-03 15:20:00",
+              "plannedQuantity": 517
+            },
+            {
+              "jobId": 4,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-04 18:40:00",
+              "endTime": "2026-07-05 14:46:00",
+              "plannedQuantity": 458
+            },
+            {
+              "jobId": 6,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-06 08:00:00",
+              "endTime": "2026-07-07 05:56:00",
+              "plannedQuantity": 500
+            }
+          ]
+        },
+        {
+          "machineId": 14,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-01 12:37:00",
+              "endTime": "2026-07-02 16:49:00",
+              "plannedQuantity": 1015
+            },
+            {
+              "jobId": 2,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-02 17:39:00",
+              "endTime": "2026-07-03 20:59:00",
+              "plannedQuantity": 984
+            },
+            {
+              "jobId": 6,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-06 08:50:00",
+              "endTime": "2026-07-07 06:46:00",
+              "plannedQuantity": 789
+            }
+          ]
+        },
+        {
+          "machineId": 16,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-02 09:41:00",
+              "endTime": "2026-07-02 16:49:00",
+              "plannedQuantity": 278
+            },
+            {
+              "jobId": 4,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-04 19:30:00",
+              "endTime": "2026-07-05 21:24:00",
+              "plannedQuantity": 1010
+            }
+          ]
+        },
+        {
+          "machineId": 17,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-02 10:14:00",
+              "endTime": "2026-07-03 06:32:00",
+              "plannedQuantity": 609
+            },
+            {
+              "jobId": 2,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-03 07:02:00",
+              "endTime": "2026-07-04 15:50:00",
+              "plannedQuantity": 984
+            },
+            {
+              "jobId": 6,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-06 18:30:00",
+              "endTime": "2026-07-08 04:38:00",
+              "plannedQuantity": 1024
+            }
+          ]
+        },
+        {
+          "machineId": 18,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-02 10:14:00",
+              "endTime": "2026-07-03 09:59:00",
+              "plannedQuantity": 684
+            },
+            {
+              "jobId": 3,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-03 10:39:00",
+              "endTime": "2026-07-05 08:15:00",
+              "plannedQuantity": 1313
+            },
+            {
+              "jobId": 4,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-05 08:55:00",
+              "endTime": "2026-07-06 20:00:00",
+              "plannedQuantity": 1010
+            },
+            {
+              "jobId": 6,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-06 20:40:00",
+              "endTime": "2026-07-07 07:20:00",
+              "plannedQuantity": 307
+            }
+          ]
+        },
+        {
+          "machineId": 19,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-04 17:00:00",
+              "endTime": "2026-07-05 13:18:00",
+              "plannedQuantity": 609
+            },
+            {
+              "jobId": 2,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-03 07:42:00",
+              "endTime": "2026-07-04 16:30:00",
+              "plannedQuantity": 984
+            },
+            {
+              "jobId": 6,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-06 21:20:00",
+              "endTime": "2026-07-08 07:28:00",
+              "plannedQuantity": 1024
+            }
+          ]
+        },
+        {
+          "machineId": 20,
+          "blockResults": [
+            {
+              "jobId": 1,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-02 10:54:00",
+              "endTime": "2026-07-03 12:14:00",
+              "plannedQuantity": 684
+            },
+            {
+              "jobId": 3,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-03 12:54:00",
+              "endTime": "2026-07-05 13:32:00",
+              "plannedQuantity": 1313
+            },
+            {
+              "jobId": 4,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-05 14:12:00",
+              "endTime": "2026-07-07 03:37:00",
+              "plannedQuantity": 1010
+            },
+            {
+              "jobId": 6,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-08 16:40:00",
+              "endTime": "2026-07-09 04:03:00",
+              "plannedQuantity": 307
+            }
+          ]
+        },
+        {
+          "machineId": 13,
+          "blockResults": [
+            {
+              "jobId": 2,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-02 08:00:00",
+              "endTime": "2026-07-03 02:32:00",
+              "plannedQuantity": 467
+            },
+            {
+              "jobId": 3,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-03 08:00:00",
+              "endTime": "2026-07-04 07:28:00",
+              "plannedQuantity": 591
+            },
+            {
+              "jobId": 6,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-06 08:00:00",
+              "endTime": "2026-07-07 05:40:00",
+              "plannedQuantity": 546
+            }
+          ]
+        },
+        {
+          "machineId": 15,
+          "blockResults": [
+            {
+              "jobId": 3,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-03 09:20:00",
+              "endTime": "2026-07-05 01:08:00",
+              "plannedQuantity": 1313
+            },
+            {
+              "jobId": 6,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-06 14:20:00",
+              "endTime": "2026-07-07 06:46:00",
+              "plannedQuantity": 542
+            }
+          ]
+        },
+        {
+          "machineId": 2,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-05 08:00:00",
+              "endTime": "2026-07-06 08:37:00",
+              "plannedQuantity": 561
+            },
+            {
+              "jobId": 7,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-07 12:40:00",
+              "endTime": "2026-07-08 20:07:00",
+              "plannedQuantity": 717
+            }
+          ]
+        },
+        {
+          "machineId": 3,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-05 08:00:00",
+              "endTime": "2026-07-07 00:36:00",
+              "plannedQuantity": 1023
+            }
+          ]
+        },
+        {
+          "machineId": 6,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-05 08:50:00",
+              "endTime": "2026-07-07 01:27:00",
+              "plannedQuantity": 1584
+            }
+          ]
+        },
+        {
+          "machineId": 7,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-06 17:17:00",
+              "endTime": "2026-07-07 02:00:00",
+              "plannedQuantity": 261
+            },
+            {
+              "jobId": 7,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-07 14:03:00",
+              "endTime": "2026-07-09 00:39:00",
+              "plannedQuantity": 1038
+            }
+          ]
+        },
+        {
+          "machineId": 8,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 30,
+              "craftId": 1,
+              "startTime": "2026-07-05 09:23:00",
+              "endTime": "2026-07-07 07:20:00",
+              "plannedQuantity": 1323
+            }
+          ]
+        },
+        {
+          "machineId": 9,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-07 08:30:00",
+              "endTime": "2026-07-07 17:12:00",
+              "plannedQuantity": 261
+            },
+            {
+              "jobId": 7,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-07 17:42:00",
+              "endTime": "2026-07-09 04:18:00",
+              "plannedQuantity": 1038
+            }
+          ]
+        },
+        {
+          "machineId": 10,
+          "blockResults": [
+            {
+              "jobId": 5,
+              "procedureId": 40,
+              "craftId": 1,
+              "startTime": "2026-07-06 17:57:00",
+              "endTime": "2026-07-08 18:57:00",
+              "plannedQuantity": 1323
+            }
+          ]
+        },
+        {
+          "machineId": 1,
+          "blockResults": [
+            {
+              "jobId": 7,
+              "procedureId": 10,
+              "craftId": 1,
+              "startTime": "2026-07-07 08:00:00",
+              "endTime": "2026-07-07 21:23:00",
+              "plannedQuantity": 321
+            }
+          ]
+        },
+        {
+          "machineId": 5,
+          "blockResults": [
+            {
+              "jobId": 7,
+              "procedureId": 20,
+              "craftId": 1,
+              "startTime": "2026-07-07 13:30:00",
+              "endTime": "2026-07-08 20:58:00",
+              "plannedQuantity": 1038
+            }
+          ]
+        }
+      ],
+      "unicode": "815E5-838B0-2A4C1-28880-87724"
+    },
+    "timeStamp": "2026-08-19 15:24:50"
+  }
+}
