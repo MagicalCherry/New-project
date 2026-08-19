@@ -1,2 +1,2 @@
-# Fexible Fob Shop Porblem AI Agent
+# Fexible Job Shop Porblem AI Agent
 by：xhz
