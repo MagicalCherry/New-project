@@ -216,8 +216,10 @@ def print_report(report):
     else:
         print("  （无）—— 全部硬约束 0 违规")
     print()
-    print(f"延期总惩罚：{report['total_penalty']:,.1f}  （cpsat 基线 {report['baseline_penalty']:,.0f}）")
-    print(f"makespan 均值：{report['makespan_avg_h']:.1f} h  （cpsat 基线 {report['baseline_makespan_h']} h）")
+    print(f"延期总惩罚：{report['total_penalty']:,.1f}  （对照：最优求解器 cpsat 为 {report['baseline_penalty']:,.0f}）")
+    _h = report["makespan_avg_h"]
+    print(f"平均总工期（整批工单从开工到全部做完的耗时）：{_h:.1f} 小时（约 {_h / 24:.1f} 天）")
+    print(f"对照参考：最优求解器（cpsat）平均 {report['baseline_makespan_h']} 小时")
 
 
 def main():

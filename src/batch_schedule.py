@@ -35,6 +35,7 @@ FROZEN = getattr(sys, "frozen", False)   # 是否打包成 exe（PyInstaller 运
 BASE_DIR = os.path.dirname(sys.executable) if FROZEN else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INBOX_DIR = os.path.join(BASE_DIR, "待排工单")
 OUT_DIR = os.path.join(BASE_DIR, "排产结果")
+TRAIN_DIR = os.path.join(BASE_DIR, "训练方案数据")
 RULES_PATH = os.path.join(BASE_DIR, "rules.json")
 
 
@@ -123,10 +124,13 @@ def process_one(path, force):
         "penalty": penalty,
         "makespan": makespan_h,
         "delayed": delayed,
+        "scenario": scenario,
+        "result": result,
+        "stem": stem,
     }
 
 
-def process(force):
+def process(force, interactive=False):
     if not os.path.isdir(INBOX_DIR):
         os.makedirs(INBOX_DIR, exist_ok=True)
         print(f"[提示] 待排工单文件夹不存在，已创建：{INBOX_DIR}")
@@ -143,6 +147,7 @@ def process(force):
 
     done, skipped, failed = 0, 0, 0
     total_penalty = 0.0
+    infos = []
     for fn in files:
         path = os.path.join(INBOX_DIR, fn)
         try:
@@ -153,6 +158,7 @@ def process(force):
             else:
                 done += 1
                 total_penalty += info["penalty"]
+                infos.append(info)
                 print(f"  [完成] {info['path']}｜工单 {info['jobs']}｜硬约束违规 {info['viols']}"
                       f"｜延期惩罚 {info['penalty']:,.0f}｜总工期 {info['makespan']:.1f}h"
                       f"｜延期 {info['delayed']}/{info['jobs']}")
@@ -165,6 +171,38 @@ def process(force):
     print(f"方案输出目录：{OUT_DIR}")
     if failed:
         print("（有失败文件，请修正后重跑；已成功的不会重复排）")
+    if interactive and infos:
+        _export_training_prompt(infos)
+
+
+def _export_training_prompt(infos):
+    """交互询问：是否把本次排产结果存入 训练方案数据/（作为训练样本，供自动学习）。"""
+    print()
+    try:
+        ans = input("是否把本次排产结果存入 训练方案数据/（作为训练样本，供自动学习）？\n"
+                    "  1=是　2=否\n请选择：").strip()
+    except EOFError:
+        ans = ""
+    if ans != "1":
+        print("已跳过，未存入训练数据。")
+        return
+    os.makedirs(TRAIN_DIR, exist_ok=True)
+    n = 0
+    for info in infos:
+        scenario = info["scenario"]
+        result = info["result"]
+        name = "train_" + info["stem"] + ".json"
+        sample = {
+            "input": scenario,
+            "output": {"data": {
+                "machineResults": result.get("machineResults", []),
+                "unicode": result.get("unicode", "") or scenario.get("unicode", ""),
+            }},
+        }
+        with open(os.path.join(TRAIN_DIR, name), "w", encoding="utf-8") as f:
+            json.dump(sample, f, ensure_ascii=False)
+        n += 1
+    print(f"[已存入] {n} 个训练样本 → 训练方案数据/（下次学习自动纳入）")
 
 
 def main():
@@ -172,7 +210,7 @@ def main():
     interactive = not args   # 无参数 = 双击启动 = 处理完停留等回车
     force = "--force" in args
     try:
-        process(force)
+        process(force, interactive=interactive)
     finally:
         if interactive:
             try:

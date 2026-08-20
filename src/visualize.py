@@ -204,7 +204,7 @@ def main():
         json.dump(result, f, ensure_ascii=False, indent=2)
 
     print(f"排产完成：{len(scenario['jobs'])} 工单，{sum(1 for mr in result['machineResults'] for _ in mr['blockResults'])} 个排产块")
-    print(f"延期惩罚 {penalty:,.0f}｜makespan {makespan_h:.1f} h｜延期工单 {delayed}/{len(jobs)}")
+    print(f"延期惩罚 {penalty:,.0f}｜总工期 {makespan_h:.1f} h｜延期工单 {delayed}/{len(jobs)}")
     print(f"甘特图：{out_path}")
     print(f"排产结果：{result_path}")
 

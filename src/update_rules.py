@@ -291,7 +291,7 @@ def cmd_run(force=False):
     _append_lesson(state["cycle_count"], action, changes, cur_p, cand_p, reason)
 
     replay.print_report(chosen_rep)
-    print(f"\n[决策] {action}：延期惩罚 {cur_p:,.0f} -> {cand_p:,.0f}；makespan {cur_m:.1f}h -> {cand_m:.1f}h")
+    print(f"\n[决策] {action}：延期惩罚 {cur_p:,.0f} -> {cand_p:,.0f}；平均总工期 {cur_m:.1f}h -> {cand_m:.1f}h")
     if reason:
         print(f"[LLM 理由] {reason}")
     print(f"[已记录] 第 {state['cycle_count']} 轮，长期记忆 agent_state.json 已更新")
