@@ -1,0 +1,11 @@
+{
+  "cycle_count": 0,
+  "training_period_days": 7,
+  "last_cycle_at": null,
+  "current_version": null,
+  "current_rules": null,
+  "seen_train_paths": [],
+  "seen_test_paths": [],
+  "data_progress": [],
+  "rule_history": []
+}

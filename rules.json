@@ -1,0 +1,13 @@
+{
+  "version": "2",
+  "updatedAt": "2026-08-21",
+  "softRules": {
+    "splitMaxMachines": 3,
+    "allocProportional": false,
+    "preferHighCapacity": true,
+    "jobOrder": "deadline_first",
+    "lineAssign": "load_balance",
+    "loosenessRiskLine": 12.0
+  },
+  "learnedRules": []
+}

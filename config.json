@@ -1,0 +1,6 @@
+{
+  "provider": "auto",
+  "api_key": "",
+  "model": "deepseek-v4-flash",
+  "base_url": "https://api.deepseek.com"
+}
